@@ -1,0 +1,59 @@
+name: "Alpha360"
+description: "Unified Security Analysis & Financial Planner — Analisi titoli 360°, scoring engine, smart money, piano finanziario, email digest"
+version: "1.0.0"
+slug: "alpha360"
+url: "https://github.com/staracegiuseppe/alpha360"
+arch:
+  - aarch64
+  - amd64
+  - armv7
+  - i386
+ingress: true
+ingress_port: 8099
+panel_icon: "mdi:chart-areaspline"
+panel_title: "Alpha360"
+homeassistant_api: false
+init: false
+startup: "application"
+ports:
+  8099/tcp: null
+ports_description:
+  8099/tcp: "Web UI (via Ingress)"
+options:
+  symbols:
+    - "AAPL"
+    - "MSFT"
+    - "ENEL.MI"
+    - "^FTSEMIB"
+    - "VWCE.DE"
+  claude_api_key: ""
+  perplexity_api_key: ""
+  email_from: ""
+  email_password: ""
+  email_to: "staracegiuseppe@gmail.com"
+  scheduler_enabled: true
+  scheduler_interval_minutes: 60
+  scheduler_market_hours_only: false
+  email_enabled: true
+  email_mode: "full"
+  always_send: false
+  pac_monthly_amount: 500
+  pac_years: 20
+  target_monthly_income: 2000
+schema:
+  symbols:
+    - str
+  claude_api_key: str
+  perplexity_api_key: str
+  email_from: str
+  email_password: str
+  email_to: str
+  scheduler_enabled: bool
+  scheduler_interval_minutes: int
+  scheduler_market_hours_only: bool
+  email_enabled: bool
+  email_mode: str
+  always_send: bool
+  pac_monthly_amount: int
+  pac_years: int
+  target_monthly_income: int

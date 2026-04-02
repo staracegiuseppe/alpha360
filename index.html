@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpha360 — Unified Security Analysis & Financial Planner</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+  <!-- TOP NAV -->
+  <nav id="topnav">
+    <div class="nav-brand">
+      <span class="nav-logo">α</span>
+      <span class="nav-title">Alpha<strong>360</strong></span>
+    </div>
+    <div class="nav-tabs">
+      <button class="tab-btn active" data-tab="analisi" onclick="switchTab('analisi')">📊 Analisi</button>
+      <button class="tab-btn" data-tab="planner" onclick="switchTab('planner')">💰 Piano</button>
+      <button class="tab-btn" data-tab="email" onclick="switchTab('email')">✉ Email</button>
+      <button class="tab-btn" data-tab="impostazioni" onclick="switchTab('impostazioni')">⚙ Config</button>
+    </div>
+    <div class="nav-status" id="nav-status"></div>
+  </nav>
+
+  <!-- TAB CONTAINERS -->
+  <div id="tab-analisi" class="tab-content active"></div>
+  <div id="tab-planner" class="tab-content"></div>
+  <div id="tab-email" class="tab-content"></div>
+  <div id="tab-impostazioni" class="tab-content"></div>
+
+  <!-- LOADING OVERLAY -->
+  <div id="loading" class="loading-overlay" style="display:none">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Caricamento Alpha360...</div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
