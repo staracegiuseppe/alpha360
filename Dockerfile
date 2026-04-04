@@ -1,19 +1,19 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=python:3.11-alpine3.18
 FROM ${BUILD_FROM}
 
-RUN apk add --no-cache python3 py3-pip curl bash
+# System deps
+RUN apk add --no-cache bash curl && \
+    pip3 install --no-cache-dir --break-system-packages \
+    fastapi==0.111.0 uvicorn==0.30.1 httpx==0.27.0
 
 WORKDIR /app
-
-# Copia tutto il repo (includendo index.html, app.js, style.css)
 COPY . /app/
 
-# Crea una cartella static IN PYTHON, NON nel Dockerfile
-# (vedi server.py sotto)
+# Ensure data dir exists (HA mounts /data, local dev needs it)
+RUN mkdir -p /data && chmod +x /app/run.sh
 
-COPY requirements.txt .
-RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
-
-RUN chmod +x /app/run.sh
+EXPOSE 8099
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+  CMD curl -sf http://localhost:8099/api/status || exit 1
 
 CMD ["/app/run.sh"]

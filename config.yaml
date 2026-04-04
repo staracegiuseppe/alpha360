@@ -1,6 +1,6 @@
 name: "Alpha360"
 description: "Unified Security Analysis & Financial Planner — Analisi titoli 360°, scoring engine, smart money, piano finanziario, email digest"
-version: "1.0.5"
+version: "1.0.0"
 slug: "alpha360"
 url: "https://github.com/staracegiuseppe/alpha360"
 arch:
